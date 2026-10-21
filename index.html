@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mohamed & Rahma | دعوة الفرح</title>
+<style>
+:root {
+  --site-primary: #53665B;
+  --site-on-primary: #FFFFFF;
+  --site-secondary: #E8E2D7;
+  --site-on-secondary: #27352D;
+  --site-background: #F7F5F0;
+  --site-on-background: #25312B;
+  --site-font-body: Tahoma, Arial, sans-serif;
+  --site-font-heading: Georgia, 'Times New Roman', serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #F7F5F0; color: #25312B; font-family: var(--site-font-body); }
+#app { width: 100%; min-height: 100vh; border-radius: 0; background-color: var(--site-background); color: var(--site-on-background); overflow: hidden; }
+button, input, textarea, select { font: inherit; }
+button { cursor: pointer; }
+.topbar { display:flex; justify-content:space-between; align-items:center; gap:12px; max-width:1080px; margin:auto; padding:18px 24px; }
+.brand { font-size:13px; letter-spacing:.08em; color:var(--site-primary); font-weight:700; }
+.top-actions { display:flex; gap:8px; flex-wrap:wrap; }
+.btn { border:1px solid #D8D4CA; padding:10px 15px; border-radius:999px; background:transparent; color:inherit; font-size:13px; transition:transform .15s, background .15s; }
+.btn:hover { transform:translateY(-1px); }
+.btn.primary { background:var(--site-primary); color:var(--site-on-primary); border-color:var(--site-primary); }
+.hero { max-width:1080px; margin:0 auto; padding:24px 24px 54px; display:grid; grid-template-columns:1.05fr .95fr; gap:42px; align-items:center; }
+.hero-copy { padding:28px 0; }
+.eyebrow { color:var(--site-primary); font-size:12px; letter-spacing:.15em; font-weight:bold; }
+h1 { font-family:var(--site-font-heading); font-size:clamp(42px,6vw,76px); font-weight:500; line-height:1.15; margin:18px 0; letter-spacing:-.04em; }
+.names { color:var(--site-primary); }
+.lead { max-width:460px; line-height:2; color:light-dark(#656A62,#C0C4BC); font-size:15px; }
+.details { display:flex; gap:22px; flex-wrap:wrap; margin:26px 0; }
+.detail { border-right:2px solid #C9BFAE; padding-right:12px; }
+.detail small { display:block; color:#898B82; font-size:11px; margin-bottom:6px; }
+.detail strong { font-size:14px; font-weight:600; }
+.art { min-height:480px; position:relative; border-radius:260px 260px 20px 20px; background:linear-gradient(145deg,#E6E1D6,#F5F0E7 52%,#D9DED4); display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid #E2DCCE; }
+.art:before,.art:after { content:""; position:absolute; width:230px; height:360px; border:1px solid rgba(83,102,91,.45); border-radius:50%; transform:rotate(32deg); opacity:var(--site-decoration-opacity); }
+.art:after { transform:rotate(-32deg); width:180px; height:320px; }
+.art-inner { position:relative; z-index:1; text-align:center; padding:30px; }
+.monogram { font-family:var(--site-font-heading); color:#53665B; font-size:74px; line-height:1.1; }
+.art-caption { font-size:11px; letter-spacing:.23em; color:#69776A; margin-top:20px; }
+.art-date { font-size:12px; color:#69776A; margin-top:12px; }
+.countdown-wrap { background:var(--site-secondary); color:var(--site-on-secondary); padding:30px 20px; text-align:center; }
+.countdown-wrap h2,.section-title { font-family:var(--site-font-heading); font-size:clamp(26px,3vw,38px); font-weight:500; margin:0 0 10px; }
+.countdown-wrap p { color:#6C7169; font-size:13px; }
+.countdown { display:flex; justify-content:center; gap:12px; margin-top:22px; }
+.timebox { min-width:76px; padding:14px 10px; border:1px solid #CEC8BC; border-radius:12px; }
+.timebox strong { display:block; font-family:var(--site-font-heading); font-size:28px; font-weight:500; }
+.timebox span { font-size:11px; color:#72776E; }
+section.content { max-width:900px; margin:auto; padding:68px 24px; text-align:center; }
+.section-kicker { color:var(--site-primary); font-size:11px; letter-spacing:.16em; font-weight:bold; }
+.section-title { margin:12px 0; }
+.section-copy { color:light-dark(#6F746C,#B9BEB5); line-height:2; font-size:14px; max-width:560px; margin:0 auto 24px; }
+.gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:26px; }
+.photo { min-height:180px; background:linear-gradient(145deg,#E4E0D6,#F3EEE5); border-radius:14px; overflow:hidden; display:flex; align-items:center; justify-content:center; border:1px solid #E1DCD1; position:relative; }
+.photo img { width:100%; height:100%; position:absolute; inset:0; object-fit:cover; }
+.photo span { color:#7C857A; font-size:12px; padding:12px; }
+.upload-label { display:inline-flex; margin-top:18px; }
+.upload-label input { display:none; }
+.rsvp-area { background:#EEEAE1; }
+.rsvp-form { max-width:520px; margin:26px auto 0; text-align:right; display:grid; gap:14px; }
+.field { display:grid; gap:7px; }
+.field label { font-size:12px; color:#6A7068; }
+.field input,.field select,.field textarea { width:100%; border:1px solid #D8D4CA; background:#FBFAF7; color:inherit; border-radius:10px; padding:12px; outline:none; }
+.field input:focus,.field select:focus { border-color:var(--site-primary); }
+.rsvp-form .btn { justify-content:center; width:100%; }
+.notice { display:none; padding:14px; border-radius:10px; background:#DCE8DB; color:#294832; font-size:13px; line-height:1.8; }
+footer { padding:26px 20px; text-align:center; font-size:12px; color:#85897F; }
+.editor { max-width:1080px; margin:0 auto 24px; padding:0 24px; }
+.editor details { background:light-dark(#EFEBE2,#232A25); border:1px solid #DED9CE; border-radius:14px; padding:14px 16px; }
+.editor summary { cursor:pointer; font-size:13px; font-weight:bold; }
+.editor-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; padding-top:16px; text-align:right; }
+.editor-grid label { display:grid; gap:6px; font-size:11px; color:#74796F; }
+.editor-grid input { width:100%; padding:10px; border:1px solid #D8D4CA; border-radius:8px; background:#FBFAF7; color:inherit; }
+#audioFile { display:none; }
+@media(max-width:720px) { .hero { grid-template-columns:1fr; gap:22px; padding-top:8px; } .hero-copy { padding:12px 0; order:1; } .art { min-height:350px; order:0; } h1 { font-size:52px; } .gallery { grid-template-columns:1fr 1fr; } .photo:last-child { display:none; } .editor-grid { grid-template-columns:1fr 1fr; } .topbar { padding:14px 18px; } .timebox { min-width:62px; } .timebox strong { font-size:24px; } }
+@media(max-width:420px) { .topbar { align-items:flex-start; } .top-actions { justify-content:flex-end; } .btn { padding:9px 11px; } .details { gap:14px; } .editor-grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand">دعوة خاصة · WEDDING INVITATION</div>
+    <div class="top-actions">
+      
+      <button class="btn primary" type="button" onclick="document.getElementById('rsvp').scrollIntoView({behavior:'smooth'})">تأكيد الحضور</button>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">بِسْمِ اللهِ نَبْدَأ حِكَايَةً جَدِيدَة</div>
+        <h1>حكاية حب<br><span class="names" id="heroNames">Mohamed & Rahma</span></h1>
+        <p class="lead">بكل الحب، يسعدنا أن تشاركونا أجمل لحظات عمرنا، وأن تكونوا جزءًا من بداية حكايتنا الجديدة.</p>
+        <div class="details">
+          <div class="detail"><small>التاريخ</small><strong id="heroDate">الجمعة، 30 أبريل 2027</strong></div>
+          <div class="detail"><small>الساعة</small><strong id="heroTime">سيتم تحديد الساعة</strong></div>
+          <div class="detail"><small>المكان</small><strong id="heroPlace">Horas open air Hall</strong></div>
+        </div>
+        <button class="btn primary" onclick="document.getElementById('rsvp').scrollIntoView({behavior:'smooth'})">يشرفنا حضوركم ↙</button>
+      </div>
+      <div class="art" aria-label="تصميم زخرفي للدعوة">
+        <div class="art-inner"><div class="monogram" id="monogram">M ♡ R</div><div class="art-caption">TOGETHER IS A BEAUTIFUL PLACE TO BE</div><div class="art-date" id="artDate">30 · 04 · 2027</div></div>
+      </div>
+    </section>
+    <section class="countdown-wrap">
+      <h2>العدّ التنازلي لليوم المنتظر</h2><p>كل يوم بيقرّبنا للحظة اللي مستنيينها</p>
+      <div class="countdown" aria-live="polite">
+        <div class="timebox"><strong id="days">--</strong><span>يوم</span></div><div class="timebox"><strong id="hours">--</strong><span>ساعة</span></div><div class="timebox"><strong id="minutes">--</strong><span>دقيقة</span></div><div class="timebox"><strong id="seconds">--</strong><span>ثانية</span></div>
+      </div>
+    </section>
+    <section class="content rsvp-area" id="rsvp">
+      <div class="section-kicker">SAVE YOUR SEAT</div><h2 class="section-title">مستنيينكم ❤️</h2><p class="section-copy">وجودكم يكمّل فرحتنا. يا ريت تأكدوا حضوركم من خلال النموذج ده.</p>
+      <form class="rsvp-form" id="rsvpForm" name="wedding-rsvp" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+        <input type="hidden" name="form-name" value="wedding-rsvp"><p hidden><label>اترك هذا الحقل فارغًا <input name="bot-field"></label></p>
+        <div class="field"><label for="guestName">الاسم بالكامل</label><input id="guestName" name="guestName" required placeholder="اكتب اسمك هنا"></div>
+        <div class="field"><label for="attendance">تأكيد الحضور</label><select id="attendance" name="attendance" required><option value="">اختار الرد</option><option value="yes">بإذن الله، هكون موجود</option><option value="no">للأسف مش هقدر أحضر</option></select></div>
+        <div class="field"><label for="guestCount">عدد الحضور (بما فيهم أنت)</label><select id="guestCount" name="guestCount"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+        <button class="btn primary" type="submit">إرسال تأكيد الحضور</button><div class="notice" id="notice" role="status"></div>
+      </form>
+      
+    </section>
+    <section class="content"><div class="section-kicker">THE BIG DAY</div><h2 class="section-title">مستنيين نفرح بيكم</h2><p class="section-copy" id="closingText">وجودكم معانا هو أجمل هدية.</p><p class="section-copy" style="font-size:12px">رابط موقع القاعة هيتضاف قريبًا.</p></section>
+  </main>
+  <footer>صُممت بكل الحب ♡ · دعوة فرحنا</footer>
+
+</div>
+<script>
+const weddingDate = '2027-04-30';
+function countdown(){
+  const target = new Date(weddingDate+'T00:00:00').getTime();
+  const diff = target - Date.now();
+  const ids=['days','hours','minutes','seconds'];
+  if(diff<=0){ids.forEach(id=>document.getElementById(id).textContent='♡');return;}
+  const vals=[Math.floor(diff/86400000),Math.floor(diff%86400000/3600000),Math.floor(diff%3600000/60000),Math.floor(diff%60000/1000)];
+  ids.forEach((id,i)=>document.getElementById(id).textContent=String(vals[i]).padStart(2,'0'));
+}
+countdown();setInterval(countdown,1000);
+</script>
+</body>
+</html>
